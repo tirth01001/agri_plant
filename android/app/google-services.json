@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "642348732157",
+    "firebase_url": "https://college-project-56506-default-rtdb.firebaseio.com",
+    "project_id": "college-project-56506",
+    "storage_bucket": "college-project-56506.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642348732157:android:98a7edd4425c4d35393894",
+        "android_client_info": {
+          "package_name": "com.dashboard.flutter.app.flutter_dashboard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVjFrCCuIxm6p4cWdKc_Wbmd_rCZxQsK4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642348732157:android:54f8a954c39079c8393894",
+        "android_client_info": {
+          "package_name": "com.example.agriplant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVjFrCCuIxm6p4cWdKc_Wbmd_rCZxQsK4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642348732157:android:6ad0d2db8af595ea393894",
+        "android_client_info": {
+          "package_name": "com.example.e_farmer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVjFrCCuIxm6p4cWdKc_Wbmd_rCZxQsK4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
