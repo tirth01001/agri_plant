@@ -13,6 +13,13 @@ class ProductCard extends StatelessWidget {
   final double ? height,width;
   const ProductCard({super.key,this.height,this.width,this.onTapAddToBookMark,this.onTapAddToCart, required this.product});
 
+  String shortenString(String input, int maxLength) {
+    if (input.length <= maxLength) {
+      return input; // Agar string chhoti ya barabar ho maxLength ke, to original string return kare
+    }
+    return '${input.substring(0, maxLength)}...'; // Shorten kare aur '...' add kare
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -40,7 +47,7 @@ class ProductCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 140,
+                height: 120,
                 alignment: Alignment.topRight,
                 width: double.infinity,
                 padding: const EdgeInsets.all(8),
@@ -71,7 +78,7 @@ class ProductCard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8.0),
                       child: Text(
-                        product.name,
+                        shortenString(product.name,23),
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ),

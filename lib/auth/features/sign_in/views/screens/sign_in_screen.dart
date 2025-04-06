@@ -105,17 +105,4 @@ class SignInScreen extends GetView<SignInController> {
     );
   }
 
-  Widget _buildOtherAuthProvider() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        _GoogleButton(
-          onPressed: () => controller.signInWithGoogle(),
-        ),
-        _PhoneButton(
-          onPressed: () => controller.signInWithPhoneNumber(),
-        ),
-      ],
-    );
-  }
 }

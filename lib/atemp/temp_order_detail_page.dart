@@ -1,16 +1,10 @@
 
-
-
-import 'package:agriplant/atemp/temp_order_item.dart';
-import 'package:agriplant/data/orders.dart';
 import 'package:agriplant/main.dart';
 import 'package:agriplant/models/order.dart';
 import 'package:agriplant/models/user_account.dart';
 import 'package:agriplant/pages/onboarding_page.dart';
 import 'package:agriplant/service/firebase_service.dart';
 import 'package:agriplant/service/loading.dart';
-import 'package:agriplant/utils/extensions/date.dart';
-import 'package:agriplant/widgets/order_item.dart';
 import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';

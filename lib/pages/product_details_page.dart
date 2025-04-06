@@ -1,4 +1,4 @@
-import 'package:agriplant/data/products.dart';
+
 import 'package:agriplant/main.dart';
 import 'package:agriplant/screens/reviews_page.dart';
 import 'package:agriplant/service/firebase_service.dart';

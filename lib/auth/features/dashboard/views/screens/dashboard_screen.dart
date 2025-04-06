@@ -4,9 +4,6 @@ import 'package:agriplant/auth/config/routes/app_pages.dart';
 import 'package:agriplant/auth/shared_components/async_button.dart';
 import 'package:agriplant/auth/utils/services/service.dart';
 import 'package:agriplant/pages/home_page.dart';
-import 'package:agriplant/service/firebase_service.dart';
-
-import '../../../../shared_components/header_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

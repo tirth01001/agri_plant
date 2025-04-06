@@ -1,5 +1,6 @@
 part of sign_in;
 
+// ignore: unused_element
 class _ContinueText extends StatelessWidget {
   const _ContinueText({Key? key}) : super(key: key);
 

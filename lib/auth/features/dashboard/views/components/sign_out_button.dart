@@ -1,5 +1,6 @@
 part of dashboard;
 
+// ignore: unused_element
 class _SignOutButton extends StatelessWidget {
   const _SignOutButton({
     required this.isLoading,

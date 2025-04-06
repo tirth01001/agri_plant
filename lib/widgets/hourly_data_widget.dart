@@ -64,6 +64,7 @@ class HourlyDataWidget extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class HourlyDetails extends StatelessWidget {
   int temp;
   int timestamp;

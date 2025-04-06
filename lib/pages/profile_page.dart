@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:agriplant/atemp/temp.dart';
 import 'package:agriplant/auth/config/routes/app_pages.dart';
@@ -7,9 +6,6 @@ import 'package:agriplant/models/user_account.dart';
 import 'package:agriplant/pages/components/edit_location.dart';
 import 'package:agriplant/pages/components/edit_profile.dart';
 import 'package:agriplant/pages/onboarding_page.dart';
-import 'package:agriplant/service/firebase_service.dart';
-import 'package:agriplant/service/loading.dart';
-import 'package:agriplant/utils/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:get/get.dart';

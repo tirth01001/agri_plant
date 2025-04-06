@@ -52,7 +52,6 @@ class TransactionHistoryScreen extends StatelessWidget {
             return Center(child: CircularProgressIndicator());
           }
 
-          List<DocumentSnapshot> snaps = snapshot.data?.docs ?? [];
 
           return Padding(
             padding: const EdgeInsets.all(16.0),
