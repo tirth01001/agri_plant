@@ -47,7 +47,11 @@ class ProductCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 120,
+                height: 200,
+                // constraints: BoxConstraints(
+                //   minHeight: 170,
+                //   maxHeight: 200
+                // ),
                 alignment: Alignment.topRight,
                 width: double.infinity,
                 padding: const EdgeInsets.all(8),
@@ -111,7 +115,8 @@ class ProductCard extends StatelessWidget {
                     )
                   ],
                 ),
-              )
+              ),
+              // const SizedBox(height: 300,),
             ],
           ),
         ),

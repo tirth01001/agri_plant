@@ -6,6 +6,7 @@ import 'package:agriplant/widgets/product_card.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
 
 // final _jobQuery = FirebaseFirestore.instance.collection("e_farmer_product").withConverter(
@@ -216,26 +217,35 @@ class ExplorePage extends StatelessWidget {
                       List<DocumentSnapshot> snap = snapshot.data?.docs ??  [];
 
                       
-                      return GridView.builder(
-                        itemCount: snap.length,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 0.9,
-                          crossAxisSpacing: 16,
-                          mainAxisSpacing: 16,
-                        ),
-                        itemBuilder: (context, index) {
+                      return StaggeredGrid.count(
+                        crossAxisCount: 2,
+                        children: List.generate(snap.length, (index){
 
-                          // print(snap[index].data().toString());
-                          // Product product = Product.fromSnap(snap[index],forCart: true)
-                      
                           return ProductCard(
                             product: Product.fromSnap(snap[index],forCart: true),
                           );
-                        },
+                        }),
                       );
+                      // return GridView.builder(
+                      //   itemCount: snap.length, 
+                      //   shrinkWrap: true,
+                      //   physics: const NeverScrollableScrollPhysics(),
+                      //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      //     crossAxisCount: 2,
+                      //     childAspectRatio: 0.9,
+                      //     crossAxisSpacing: 16,
+                      //     mainAxisSpacing: 16,
+                      //   ),
+                      //   itemBuilder: (context, index) {
+
+                      //     // print(snap[index].data().toString());
+                      //     // Product product = Product.fromSnap(snap[index],forCart: true)
+                      
+                          // return ProductCard(
+                          //   product: Product.fromSnap(snap[index],forCart: true),
+                          // );
+                      //   },
+                      // );
                   },
                 );
               }
