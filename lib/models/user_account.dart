@@ -2,6 +2,7 @@
 enum Profile {
   name,
   mobile,
+  emailaddress,
   address,
   dp,
 }
@@ -13,14 +14,16 @@ class UserAccount {
   final Map<Profile,dynamic> profile;
   final List<dynamic> bookmarkedProductIDs;
   final List<dynamic> cartProductIds;
+  final List<dynamic> userAddress;
 
-  UserAccount(this.uid,this.profile,this.bookmarkedProductIDs,this.cartProductIds);
+  UserAccount(this.uid,this.profile,this.bookmarkedProductIDs,this.cartProductIds,this.userAddress);
 
   UserAccount.emptyClass({
     this.bookmarkedProductIDs=const[],
     this.cartProductIds=const[],
     this.profile=const{},
-    this.uid=""
+    this.uid="",
+    this.userAddress=const[],
   });
 
   bool get isModelEmpty => (uid.isNotEmpty && profile.isEmpty) ?

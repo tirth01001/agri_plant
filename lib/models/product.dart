@@ -14,9 +14,9 @@ class Product {
   final String cid,sid; 
   final Map<String,dynamic> offer;
   final Map<String,dynamic> size;
-  final int buyQty;
+  int buyQty;
 
-  const Product({
+  Product({
     required this.productId,
     required this.name,
     required this.description,
@@ -52,7 +52,7 @@ class Product {
     this.buyQty=1
 });
 
-  factory Product.fromSnap(DocumentSnapshot snap) =>  Product(
+  factory Product.fromSnap(DocumentSnapshot snap,{bool forCart =false}) =>  Product(
     productId: snap.get('pid'),
     description: snap.get('last_descr'),
     name: snap.get('name'),
@@ -66,6 +66,7 @@ class Product {
     cid: snap.get('cid'),
     sid: snap.get('sid'),
     size: snap.get('size'),
+    buyQty: forCart ? snap.get('buy_qty') ?? 1 : 1,
     unit: ""
   );
 
@@ -83,7 +84,7 @@ class Product {
     'cid': cid,
     'sid': sid,
     'size': size,
-    'buy_qty': newQty ?? 1,
+    'buy_qty': newQty ?? buyQty,
   };
 
 }

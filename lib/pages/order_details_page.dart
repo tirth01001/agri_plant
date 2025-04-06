@@ -11,7 +11,7 @@ class OrderDetailsPage extends StatelessWidget {
     required this.order,
   }) : super(key: key);
 
-  final Order order;
+  final OrderModel order;
 
   @override
   Widget build(BuildContext context) {

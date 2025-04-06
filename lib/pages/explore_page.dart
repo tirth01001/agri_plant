@@ -1,14 +1,18 @@
-import 'package:agriplant/data/products.dart';
+
 import 'package:agriplant/models/product.dart';
+import 'package:agriplant/pages/components/search_filter.dart';
+import 'package:agriplant/provider/expolar_provider.dart';
 import 'package:agriplant/widgets/product_card.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:provider/provider.dart';
 
 // final _jobQuery = FirebaseFirestore.instance.collection("e_farmer_product").withConverter(
 //     fromFirestore: (snap,_) => Product.fromSnap(snap),
 //     toFirestore: (product,_) => product.map
 // );
+ 
 
 class ExplorePage extends StatelessWidget {
 
@@ -16,153 +20,243 @@ class ExplorePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+  
+    final ExpolarProvider expolarProvider = ExpolarProvider();
 
-      body: ListView(
-        padding: const EdgeInsets.all(16.0),
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 15),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search here...",
-                      isDense: true,
-                      contentPadding: const EdgeInsets.all(12.0),
-                      border: const OutlineInputBorder(
-                        borderSide: BorderSide(),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(99),
+    return ChangeNotifierProvider.value(
+      value: expolarProvider,
+      child: Scaffold(
+      
+        body: ListView(
+          padding: const EdgeInsets.all(16.0),
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 15),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: expolarProvider.search,
+                      onSubmitted: (value) {
+                        if(value.isEmpty){
+                          expolarProvider.switchMode(value: false);
+                        }else{
+                          expolarProvider.switchMode(value: true);
+                        }
+                      },
+                      decoration: InputDecoration(
+                        hintText: "Search here...",
+                        isDense: true,
+                        contentPadding: const EdgeInsets.all(12.0),
+                        border: const OutlineInputBorder(
+                          borderSide: BorderSide(),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(99),
+                          ),
                         ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.grey.shade300,
+                          ),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(99),
+                          ),
+                        ),
+                        prefixIcon: const Icon(IconlyLight.search),
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.grey.shade300,
-                        ),
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(99),
-                        ),
-                      ),
-                      prefixIcon: const Icon(IconlyLight.search),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 12),
-                  child: IconButton.filled(onPressed: () {
+                  Padding(
+                    padding: const EdgeInsets.only(left: 12),
+                    child: IconButton.filled(onPressed: () {
+      
+                      //Filter Icon Button Here
+                      showModalBottomSheet(
+                        context: context, 
+                        isScrollControlled: true,
+                        builder: (context) {
+                          
+                          return SearchFilter(
+                            provider: expolarProvider,
+                          );
+                          // return FractionallySizedBox(
+                          //   heightFactor: 0.66,
+                          //   child: SearchFilter()
+                          // );
+                        },
+                      );
+      
+                    }, icon: const Icon(IconlyLight.filter)),
+                  ),
 
-                    //Filter Icon Button Here
+                  Consumer<ExpolarProvider>(
+                    builder: (context, value, child) {
 
-                  }, icon: const Icon(IconlyLight.filter)),
-                ),
-              ],
+                      if(!value.isSearching){
+
+                        return const SizedBox();
+                      }
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 12),
+                        child: IconButton.filled(onPressed: (){
+
+                          expolarProvider.category=null;
+                          expolarProvider.price=null;
+                          expolarProvider.rating=null;
+                          expolarProvider.search.text = "";
+                          expolarProvider.switchMode(value: false);
+
+                        }, icon: Icon(IconlyBold.closeSquare,color: Colors.white,)),
+                      );
+                    },
+                  ),
+                    
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 25),
-            child: SizedBox(
-              height: 170,
-              child: Card(
-                color: Colors.green.shade50,
-                elevation: 0.1,
-                shadowColor: Colors.green.shade50,
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Flexible(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+            Consumer<ExpolarProvider>(
+              builder: (context,provider,child) {
+
+                if(provider.isSearching){
+
+                  return SizedBox();
+                }
+
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 25),
+                  child: SizedBox(
+                    height: 170,
+                    child: Card(
+                      color: Colors.green.shade50,
+                      elevation: 0.1,
+                      shadowColor: Colors.green.shade50,
+                      child: Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              "Free consultation",
-                              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                                    color: Colors.green.shade700,
+                            Flexible(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Free consultation",
+                                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                                          color: Colors.green.shade700,
+                                        ),
                                   ),
+                                  const Text("Get free support from our customer service"),
+                                  FilledButton(
+                                    onPressed: () {},
+                                    child: const Text("Call now"),
+                                  ),
+                                ],
+                              ),
                             ),
-                            const Text("Get free support from our customer service"),
-                            FilledButton(
-                              onPressed: () {},
-                              child: const Text("Call now"),
-                            ),
+                            Image.asset(
+                              'assets/contact_us.png',
+                              width: 140,
+                            )
                           ],
                         ),
                       ),
-                      Image.asset(
-                        'assets/contact_us.png',
-                        width: 140,
-                      )
-                    ],
+                    ),
                   ),
-                ),
-              ),
+                );
+              }
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Featured Products",
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              TextButton(
-                onPressed: () {},
-                child: const Text("See all"),
-              ),
-            ],
-          ),
+            Consumer<ExpolarProvider>(
+              builder: (context,provider,child) {
 
+                if(provider.isSearching){
 
-          StreamBuilder(
-              stream: FirebaseFirestore.instance.collection("e_farmer_product").snapshots(),
-              builder: (context,snapshot){
-
-                if(!snapshot.hasData){
-
-                  return Center(child: CircularProgressIndicator(),);
+                  return SizedBox();
                 }
 
-                List<DocumentSnapshot> snap = snapshot.data?.docs ??  [];
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Featured Products",
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text("See all"),
+                    ),
+                  ],
+                );
+              }
+            ),
+      
+      
+            Consumer<ExpolarProvider>(
+              builder: (context,provider,child) {
 
-                return GridView.builder(
-                  itemCount: snap.length,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.9,
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 16,
-                  ),
-                  itemBuilder: (context, index) {
+                return StreamBuilder(
+                    // stream: FirebaseFirestore.instance.collection("e_farmer_product").snapshots(),
+                    // stream: expolarProvider.searchProductStream,
+                    stream: provider.searchProductStream,
+                    builder: (context,snapshot){
+                
+                      // print("Rabuild");
 
-                    return ProductCard(
-                        product: Product.fromSnap(snap[index])
-                    );
+                      if(snapshot.connectionState == ConnectionState.waiting){
+
+                        return Center(child: CircularProgressIndicator(),);
+                      }
+                      
+                      if(!snapshot.hasData){
+                      
+                        return Center(child: CircularProgressIndicator(),);
+                      }
+                      
+                      List<DocumentSnapshot> snap = snapshot.data?.docs ??  [];
+
+                      
+                      return GridView.builder(
+                        itemCount: snap.length,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 0.9,
+                          crossAxisSpacing: 16,
+                          mainAxisSpacing: 16,
+                        ),
+                        itemBuilder: (context, index) {
+
+                          // print(snap[index].data().toString());
+                          // Product product = Product.fromSnap(snap[index],forCart: true)
+                      
+                          return ProductCard(
+                            product: Product.fromSnap(snap[index],forCart: true),
+                          );
+                        },
+                      );
                   },
                 );
-            },
-          )
-
-          // GridView.builder(
-          //   itemCount: products.length,
-          //   shrinkWrap: true,
-          //   physics: const NeverScrollableScrollPhysics(),
-          //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          //     crossAxisCount: 2,
-          //     childAspectRatio: 0.9,
-          //     crossAxisSpacing: 16,
-          //     mainAxisSpacing: 16,
-          //   ),
-          //   itemBuilder: (context, index) {
-          //     return ProductCard(product: products[index]);
-          //   },
-          // ),
-        ],
+              }
+            )
+      
+            // GridView.builder(
+            //   itemCount: products.length,
+            //   shrinkWrap: true,
+            //   physics: const NeverScrollableScrollPhysics(),
+            //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            //     crossAxisCount: 2,
+            //     childAspectRatio: 0.9,
+            //     crossAxisSpacing: 16,
+            //     mainAxisSpacing: 16,
+            //   ),
+            //   itemBuilder: (context, index) {
+            //     return ProductCard(product: products[index]);
+            //   },
+            // ),
+          ],
+        ),
       ),
     );
   }

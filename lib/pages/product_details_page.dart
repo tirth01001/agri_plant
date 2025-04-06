@@ -1,7 +1,12 @@
 import 'package:agriplant/data/products.dart';
+import 'package:agriplant/main.dart';
+import 'package:agriplant/screens/reviews_page.dart';
 import 'package:agriplant/service/firebase_service.dart';
 import 'package:agriplant/service/loading.dart';
+import 'package:agriplant/widgets/product_card.dart';
+import 'package:agriplant/widgets/reviews_box.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
@@ -18,6 +23,8 @@ class ProductDetailsPage extends StatefulWidget {
 }
 
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
+
+
   late TapGestureRecognizer readMoreGestureRecognizer;
   bool showMore = false;
 
@@ -38,6 +45,17 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
     readMoreGestureRecognizer.dispose();
   }
 
+
+  Future<Map<String,dynamic>> fetchReviewData() async {
+    try{
+      DocumentSnapshot<Map<String,dynamic>> snap = await FirebaseFirestore.instance.collection("e_farmer_product_rating").doc(widget.product.productId).get();
+      Map<String,dynamic> reviews = snap.data() ?? {};
+      return reviews;
+    }catch(e){
+      return {};
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +72,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
         padding: const EdgeInsets.all(16),
         children: [
           Container(
-            height: 250,
+            height: 350,
             width: double.infinity,
             margin: const EdgeInsets.only(bottom: 16),
             decoration: BoxDecoration(
@@ -83,7 +101,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                        text: "\$${widget.product.price["new"]}",
+                        text: "Rs.${widget.product.price["new"]}",
                         style: Theme.of(context).textTheme.titleLarge),
                     TextSpan(
                         text: "/${widget.product.unit}",
@@ -102,7 +120,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 color: Colors.yellow.shade800,
               ),
               Text(
-                "${widget.product.rating} (192)",
+                "${widget.product.rating} (${widget.product.ratedBy.length})",
               ),
               const Spacer(),
               SizedBox(
@@ -110,7 +128,12 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 width: 30,
                 child: IconButton.filledTonal(
                   padding: EdgeInsets.zero,
-                  onPressed: () {},
+                  onPressed: () {
+                    if(widget.product.buyQty != 0 || widget.product.buyQty < 0) return;
+                    setState(() {
+                      widget.product.buyQty--;
+                    });
+                  },
                   iconSize: 18,
                   icon: const Icon(Icons.remove),
                 ),
@@ -118,7 +141,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: Text(
-                  "2 ${widget.product.unit}",
+                  "${widget.product.buyQty} ${widget.product.unit}",
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -129,13 +152,24 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 width: 30,
                 child: IconButton.filledTonal(
                   padding: EdgeInsets.zero,
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      widget.product.buyQty++;
+                    });
+                  },
                   iconSize: 18,
                   icon: const Icon(Icons.add),
                 ),
               ),
             ],
           ),
+          const SizedBox(height: 20),
+          Text("Size: ${widget.product.size["p_size"]} ${widget.product.size["size_in"]}",
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(fontWeight: FontWeight.bold)),
+          const SizedBox(height: 5),
           const SizedBox(height: 20),
           Text("Description",
               style: Theme.of(context)
@@ -163,6 +197,62 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
             ),
           ),
           const SizedBox(height: 20),
+          Text("Description",
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(fontWeight: FontWeight.bold)),
+          const SizedBox(height: 10),
+          FutureBuilder(
+            future: fetchReviewData(), 
+            builder: (context, snapshot) {
+              
+              if(!snapshot.hasData){
+
+                return Center(child: CircularProgressIndicator(),);
+              }
+
+              if(snapshot.data!.isEmpty){
+
+                return Center(
+                  child: Text("There is not reviews yet !"),
+                );
+              }
+
+              List<dynamic> reviewsCount = [
+                snapshot.data?["star_1_count"]??0,
+                snapshot.data?["star_2_count"]??0,
+                snapshot.data?["star_3_count"]??0,
+                snapshot.data?["star_4_count"]??0,
+                snapshot.data?["star_5_count"]??0,
+              ];
+
+              List<int> sumOfAll = reviewsCount.cast<int>();
+              int maxValue = sumOfAll.reduce((a,b) => a > b ? a : b);
+              int atIndex = sumOfAll.indexWhere((ele) => ele == maxValue);
+              return ReviewBox(
+                starCounts: sumOfAll,
+                totalReviews: snapshot.data?['total_review'],
+                // averageRating: snapshot.data?['avg_review'],
+                averageRating: atIndex == 0 ? 1.5 : atIndex == 1 ? 2.5 : atIndex == 2 ? 3.5 : atIndex == 3 ? 4.5 : 5,
+              );
+            },
+          ),
+          const SizedBox(height: 20),
+          Container(
+            height: 40,
+            width: maxW-40,
+            // margin: const EdgeInsets.symmetric(horizontal: 10),
+            child: ElevatedButton(
+              onPressed: (){
+
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ReviewsPage(productId: widget.product.productId)));
+              }, 
+              child: Center(child: Text("View reviews"))
+            ),
+          ),
+          // ReviewBox(),
+          const SizedBox(height: 20),
           Text(
             "Similar Products",
             style: Theme.of(context)
@@ -171,41 +261,86 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 .copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
-          SizedBox(
-            height: 90,
-            child: ListView.separated(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Container(
-                  height: 90,
-                  width: 80,
-                  margin: const EdgeInsets.only(bottom: 16),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(products[index].image[0]),
-                      fit: BoxFit.cover,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                );
-              },
-              separatorBuilder: (__, _) => const SizedBox(
-                width: 10,
-              ),
-              itemCount: products.length,
-            ),
+
+
+
+          //Display Similar Product Mean similar Category Product 
+          StreamBuilder(
+            stream: FirebaseFirestore.instance.collection("e_farmer_product")
+            .where('category',isEqualTo: widget.product.category)
+            .snapshots(), 
+            builder: (context, snapshot) {
+              
+              if(!snapshot.hasData){
+
+                return Center(child: CircularProgressIndicator(),);
+              }
+
+              List<DocumentSnapshot> snap = snapshot.data?.docs ?? [];
+
+              return Container(
+                height: 230,
+                child: ListView.separated(
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    
+                    return ProductCard(
+                      width: 200,
+                      // height: 120,
+                      product: Product.fromSnap(snap[index]),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    
+                    return SizedBox(width: 10,);
+                  }, 
+                  itemCount: snap.length
+                ),
+              );
+            },
           ),
+
+          // SizedBox(
+          //   height: 90,
+          //   child: ListView.separated(
+          //     physics: const BouncingScrollPhysics(),
+          //     scrollDirection: Axis.horizontal,
+          //     itemBuilder: (context, index) {
+          //       return Container(
+          //         height: 90,
+          //         width: 80,
+          //         margin: const EdgeInsets.only(bottom: 16),
+          //         decoration: BoxDecoration(
+          //           image: DecorationImage(
+          //             image: AssetImage(products[index].image[0]),
+          //             fit: BoxFit.cover,
+          //           ),
+          //           borderRadius: BorderRadius.circular(8),
+          //         ),
+          //       );
+          //     },
+          //     separatorBuilder: (__, _) => const SizedBox(
+          //       width: 10,
+          //     ),
+          //     itemCount: products.length,
+          //   ),
+          // ),
           const SizedBox(height: 20),
-          FilledButton.icon(
+          FilledButton.icon( 
             onPressed: () {
 
               Loading loading = Loading<Result>(
                 context, 
                 process: FirebaseService.service.addProductToCart(widget.product),
                 onSucess: (data) {
-                  
-                  showDialog(context: context, builder: (context) => AlertDialog(content: Center(child: Text("Product Added Into Cart !"),)));
+                  // print(data.toString());
+                  showDialog(context: context, builder: (context) => AlertDialog(
+                    content: SizedBox(
+                      height: 100,
+                      child: Center(child: Text("Product Added Into Cart !"),)
+                    )
+                  ));
                 },
               );
 

@@ -1,7 +1,14 @@
+import 'package:agriplant/auth/utils/services/service.dart';
+import 'package:agriplant/models/user_account.dart';
 import 'package:agriplant/pages/cart_page.dart';
 import 'package:agriplant/pages/explore_page.dart';
+import 'package:agriplant/pages/onboarding_page.dart';
 import 'package:agriplant/pages/profile_page.dart';
-import 'package:agriplant/pages/services_page.dart';
+
+
+import 'package:agriplant/pages/weather_screen.dart';
+import 'package:agriplant/screens/drawer.dart';
+import 'package:agriplant/service/firebase_service.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
@@ -15,16 +22,26 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  final pages = [const ExplorePage(), const ServicesPage(), const CartPage(), const ProfilePage()];
+  // final pages = [const ExplorePage(), const ServicesPage(), const CartPage(), const ProfilePage()];
+  final pages = [const ExplorePage(), const WeatherScreen(), const CartPage(), const ProfilePage()];
 
   int currentPageIndex = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
+
+  @override
+  void initState() {
+    final auth = AuthService();
+    FirebaseService.service.initAccount(auth.currentUser?.uid ?? "");
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       key: _scaffoldKey,
-      drawer: const Drawer(),
+      drawer: MyDrawer(),
       appBar: AppBar(
         centerTitle: false,
         leading: IconButton.filledTonal(
@@ -40,7 +57,7 @@ class _HomePageState extends State<HomePage> {
             //User Name:
             //Person Name Show Here
             Text(
-              "Hi Wilson 👋🏾",
+              "Hi ${globalUserAccount.profile[Profile.name]} 👋🏾",
               style: Theme.of(context).textTheme.titleMedium,
             ),
 
@@ -98,9 +115,9 @@ class _HomePageState extends State<HomePage> {
             activeIcon: Icon(IconlyBold.home),
           ),
           BottomNavigationBarItem(
-            icon: Icon(IconlyLight.call),
-            label: "Services",
-            activeIcon: Icon(IconlyBold.call),
+            icon: Icon(IconlyBold.calendar),
+            label: "Weather",
+            activeIcon: Icon(IconlyBold.calendar),
           ),
           BottomNavigationBarItem(
             icon: Icon(IconlyLight.buy),

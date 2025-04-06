@@ -7,7 +7,7 @@ import 'order_product.dart';
 class OrderItem extends StatelessWidget {
   const OrderItem({super.key, required this.order, this.visibleProducts = 2});
 
-  final Order order;
+  final OrderModel order;
   final int visibleProducts;
 
   @override
@@ -43,7 +43,7 @@ class OrderItem extends StatelessWidget {
                 ),
                 const SizedBox(width: 5),
                 Text(
-                  "\$${totalPrice.toStringAsFixed(2)}",
+                  "Rs.${totalPrice.toStringAsFixed(2)}",
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),

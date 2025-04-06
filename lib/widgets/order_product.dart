@@ -13,7 +13,7 @@ class OrderProduct extends StatelessWidget {
     required this.product,
   });
 
-  final Order order;
+  final OrderModel order;
   final Product product;
 
   @override
@@ -61,7 +61,7 @@ class OrderProduct extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "\$${product.price}",
+                      "Rs.${product.price}",
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                             color: Theme.of(context).colorScheme.primary,
                             fontWeight: FontWeight.bold,

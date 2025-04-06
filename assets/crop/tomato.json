@@ -1,0 +1,208 @@
+
+{
+
+    "data": [
+        {
+            "id": "0",
+            "title": "Pre Nursery",
+            "subtitle": "2-3 weeks before transplanting",
+            "widgets": [
+                {   
+                    "title": "Procurement of Farm Yard Manure",
+                    "nested_title": "in a nutshell",
+                    "image": "assets/crop/images/TI_0.jpeg",
+                    "descr": [
+                        {
+                            "title": "Abc",
+                            "descr": "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                        }
+                    ]
+                },
+                {   
+                    "title": "Procurement of seed",
+                    "nested_title": "Task Intruction",
+                    "image": "assets/crop/images/T12.jpeg",
+                    "descr": [
+                        {
+                            "title": "Abc",
+                            "descr": "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "1",
+            "title": "Nursery",
+            "subtitle": "4th week",
+            "widgets": [
+                {   
+                    "title": "Transplanting",
+                    "nested_title": "in a nutshell",
+                    "image": "assets/crop/images/T11.jpeg",
+                    "descr": [
+                        {
+                            "title": "Transplanting in Farming",
+                            "descr": "Transplanting is an important agricultural process where seedlings or young plants are moved from one location to another to provide better growth conditions. Typically, this is done when the plants are strong enough to survive in a new environment. The process ensures healthier growth and better yields."
+                        },
+                        {
+                            "title": "Best Time for Transplanting",
+                            "descr": "The ideal time for transplanting is early in the morning or late in the evening when the temperatures are cooler. This helps reduce the stress on the plants. It is also crucial to consider the seasonal requirements of different crops. Some crops may need transplanting in specific seasons for optimal growth."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "1",
+            "title": "Nursery",
+            "subtitle": "3 weeks before transplanting",
+            "widgets": [
+
+                {   
+                    "title": "Procurement of Drip",
+                    "nested_title": "in a nutshell",
+                    "image": "assets/crop/images/T9.jpeg",
+                    "descr": [
+                        {
+                            "title": "Procurement of Drip Irrigation Materials",
+                            "descr": "Procurement of drip irrigation materials is a critical step in setting up an efficient and water-conserving irrigation system for farms. Drip irrigation is a highly effective method where water is delivered directly to the roots of plants in a controlled manner. The materials required for a successful drip irrigation system include drip tubing, emitters, connectors, filters, and pressure regulators. Ensuring the quality and proper specifications of these materials is essential for the longevity and efficiency of the irrigation system. Reliable procurement helps farmers achieve optimal water usage, leading to higher crop yields and cost savings in water consumption."
+                        },
+                        {
+                            "title": "Why Drip Irrigation is Essential for Modern Farming",
+                            "descr": "Drip irrigation is one of the most water-efficient irrigation methods, making it ideal for regions where water scarcity is a concern. It provides precise watering directly at the plant roots, minimizing evaporation and water wastage. Additionally, drip irrigation supports soil conservation, reduces weed growth, and helps in maintaining consistent moisture levels in the soil. This method is particularly beneficial for high-value crops, ensuring optimal growth conditions and maximizing yields while minimizing water usage."
+                        },
+                        {
+                            "title": "Types of Drip Irrigation Materials",
+                            "descr": "Drip irrigation systems require specific materials for proper installation and maintenance. Key materials include: \n\n- **Drip Tubing:** This is the main delivery system for water and comes in various diameters based on crop requirements. \n- **Emitters:** These are placed along the tubing and control the water flow to each plant. They can be pressure-compensating or non-compensating based on the water pressure. \n- **Connectors and Fittings:** Used to join different parts of the system, such as tubing, emitters, and filters. \n- **Filters:** They help prevent clogging of the emitters by filtering out particles from the water. \n- **Pressure Regulators:** These maintain consistent water pressure throughout the system to ensure uniform water distribution."
+                        },
+                        {
+                            "title": "Steps for Installing a Drip Irrigation System",
+                            "descr": "Installing a drip irrigation system involves several crucial steps: \n\n1. **Planning and Design:** Assess the crop requirements and layout of the farm to determine the type of system, tubing size, and emitter spacing. \n2. **Procurement of Materials:** Purchase high-quality materials such as tubing, emitters, and filters. \n3. **Installation:** Lay the tubing, set up emitters, and install pressure regulators and filters as per the design. \n4. **Testing:** Test the system to ensure water distribution is even and there are no leaks. \n5. **Maintenance:** Regularly check the system for blockages, clean filters, and ensure emitters are working efficiently."
+                        }
+                    ]
+                },
+                {   
+                    "title": "Plant protection in nursery",
+                    "nested_title": "in a nutshell",
+                    "image": "assets/crop/images/T8.jpeg",
+                    "descr": [
+                        {
+                            "title": "Plant Protection in Nursery",
+                            "descr": "Plant protection in the nursery is a critical aspect of maintaining healthy seedlings and young plants. It involves the use of various practices, techniques, and products to protect plants from pests, diseases, and environmental stressors. In the nursery, where plants are more vulnerable, timely intervention is necessary to prevent damage that can impact growth, survival rates, and quality. Effective plant protection ensures strong and disease-free plants that are ready for transplantation or sale."
+                        },
+                        {
+                            "title": "Common Pests in Nursery",
+                            "descr": "The nursery is a conducive environment for a variety of pests, which can damage young plants if left unchecked. Common pests found in nurseries include: \n\n- **Aphids:** Small insects that suck sap from plants, causing deformation and stunted growth. \n- **Whiteflies:** Tiny flying insects that attack plant leaves, leading to yellowing and leaf drop. \n- **Mealybugs:** Soft-bodied insects that cause wilting, yellowing, and even death of seedlings. \n- **Spider Mites:** Microscopic pests that create fine webs and cause leaf damage, reducing plant vitality. \n- **Root-knot Nematodes:** Microscopic worms that damage roots, affecting plant growth and making them more susceptible to diseases."
+                        },
+                        {
+                            "title": "Common Diseases in Nursery",
+                            "descr": "Several diseases can affect plants in the nursery, slowing their growth and reducing their overall health. Common diseases include: \n\n- **Powdery Mildew:** A fungal disease that affects the leaves, causing a white, powdery coating on the plant surface. \n- **Downy Mildew:** A fungal-like disease that causes yellowing of leaves and stunted growth. \n- **Root Rot:** Caused by overwatering or poor drainage, root rot leads to wilting and the eventual death of plants. \n- **Damping-Off:** A fungal disease that affects young seedlings, causing them to collapse and die. \n- **Leaf Spot:** A fungal or bacterial infection that causes spots or lesions on the leaves, affecting plant health."
+                        },
+                        {
+                            "title": "Plant Protection Methods",
+                            "descr": "To protect plants in the nursery from pests and diseases, various methods can be employed: \n\n1. **Cultural Control:** This involves practices like crop rotation, proper spacing, and soil sterilization to reduce the spread of pests and diseases. \n2. **Biological Control:** Using natural predators, parasites, or pathogens to control pest populations, such as introducing ladybugs to control aphids. \n3. **Chemical Control:** The use of insecticides, fungicides, and miticides to protect plants. Careful selection and application are necessary to avoid damage to plants and the environment. \n4. **Physical Barriers:** Using nets, row covers, and mulches to prevent pests from reaching the plants. \n5. **Good Nursery Hygiene:** Regular cleaning of tools, pots, and containers to prevent the spread of disease. Disinfecting the nursery and removing dead plants helps reduce pest and pathogen buildup."
+                        },
+                        {
+                            "title": "Preventive Measures for Plant Protection",
+                            "descr": "Prevention is better than cure, and there are several steps that can be taken to avoid pest and disease problems in the nursery: \n\n- **Regular Inspection:** Regularly check plants for signs of pests or diseases. Early detection allows for quick action. \n- **Healthy Plants:** Start with disease-free and pest-free plants and seeds to reduce the likelihood of problems. \n- **Proper Watering:** Overwatering or underwatering can stress plants and make them more vulnerable to pests and diseases. Ensure proper drainage and watering practices. \n- **Fertilization:** Provide the correct nutrients to strengthen plant immunity. Healthy plants are more resistant to pests and diseases. \n- **Clean Tools and Equipment:** Always clean and disinfect gardening tools, containers, and pots before use to prevent cross-contamination."
+                        },
+                        {
+                            "title": "When to Apply Plant Protection Products",
+                            "descr": "The timing of plant protection treatments is critical to their effectiveness. Here are some general guidelines: \n\n- **At the First Signs of Infestation:** Apply pest control products as soon as you notice the first signs of pest or disease damage. Early intervention can prevent a larger infestation. \n- **At the Right Growth Stage:** Some treatments are most effective at specific stages of plant growth, such as during the vegetative phase or early flowering. Follow product guidelines for best results. \n- **Before Transplanting:** Treat plants in the nursery before they are moved to the field or to a new location to ensure they are free of pests and diseases."
+                        }
+                    ]
+                }
+
+            ]
+        },
+        {
+            "id": "1",
+            "title": "Nursery",
+            "subtitle": "1 weeks before transplanting",
+            "widgets": [
+
+                {   
+                    "title": "Application of basa dose of fertiliser",
+                    "nested_title": "in a nutshell",
+                    "image": "assets/crop/images/T6.jpeg",
+                    "descr": [
+                        {
+                            "title": "Application of Basal Dose of Fertilizer",
+                            "descr": "The application of the basal dose of fertilizer is an essential practice in crop cultivation. Basal fertilization involves applying fertilizers to the soil at the time of planting or shortly before planting, providing essential nutrients for the initial growth stages of the crop. This helps in establishing healthy plants, ensuring that they have adequate nutrition right from the start, which is critical for optimum growth and productivity. The basal dose typically includes macronutrients like nitrogen (N), phosphorus (P), and potassium (K), as well as secondary and micronutrients."
+                        },
+                        {
+                            "title": "Importance of Basal Fertilization",
+                            "descr": "Basal fertilization is important because it supplies the plants with essential nutrients during their early growth phase. The primary benefits include: \n\n- **Supports Initial Growth:** The basal fertilizer ensures that plants get the nutrients they need right from the beginning, aiding in the development of strong roots and healthy seedlings. \n- **Improves Soil Fertility:** By adding nutrients to the soil, basal fertilization helps improve the fertility and structure of the soil, which supports better long-term crop health. \n- **Boosts Yield:** Proper basal fertilization contributes to higher yields by providing the necessary nutrients to plants during their critical early growth stages."
+                        },
+                        {
+                            "title": "Types of Fertilizers Used for Basal Application",
+                            "descr": "There are various types of fertilizers that can be used for basal application, depending on the crop and soil requirements: \n\n- **Complete Fertilizers:** These fertilizers contain all three primary nutrients—nitrogen, phosphorus, and potassium (NPK). They are suitable for most crops and provide balanced nutrition. \n- **Single Nutrient Fertilizers:** These fertilizers focus on one nutrient, such as urea (nitrogen), superphosphate (phosphorus), or muriate of potash (potassium). They are used when specific deficiencies are identified in the soil. \n- **Organic Fertilizers:** Organic materials like compost, farmyard manure, and green manure can also be applied as basal fertilizers. They provide slow-release nutrients and improve soil structure. \n- **Micro-nutrient Fertilizers:** These fertilizers contain trace elements like zinc, iron, manganese, and copper, which are necessary for plant growth but required in very small quantities."
+                        },
+                        {
+                            "title": "Timing of Basal Fertilizer Application",
+                            "descr": "The timing of basal fertilizer application is crucial to its effectiveness. It is generally applied: \n\n- **Before Sowing or Planting:** Basal fertilizers should be incorporated into the soil before planting seeds or transplanting seedlings. This ensures that the nutrients are available to the plant as soon as the roots begin to grow. \n- **At the Time of Planting:** Fertilizers can be applied in the planting hole or around the root zone at the time of planting to directly supply nutrients to the young plant. \n- **In Early Growth Stages:** For certain crops, a light dose of fertilizer may be applied around the time of germination or early seedling growth."
+                        },
+                        {
+                            "title": "Methods of Basal Fertilizer Application",
+                            "descr": "There are several methods for applying basal fertilizers, and the choice depends on the type of crop, the soil, and available resources: \n\n- **Broadcasting:** The fertilizer is spread evenly over the soil surface before sowing or planting. After broadcasting, the fertilizer is either lightly incorporated into the soil with a hoe or plow or left on the surface if irrigation or rain is expected to help it dissolve. \n- **Banding:** The fertilizer is applied in bands along the rows where seeds will be planted. This ensures that the roots come into contact with the fertilizer as they grow. \n- **Placement in Planting Holes:** In this method, fertilizers are placed directly into the planting holes before transplanting or sowing seeds. This ensures that the roots are directly in contact with the nutrients."
+                        },
+                        {
+                            "title": "Factors to Consider for Basal Fertilizer Application",
+                            "descr": "Several factors should be considered when applying the basal dose of fertilizer: \n\n- **Soil Test Results:** Conducting a soil test helps determine the nutrient levels in the soil, which allows for the correct type and quantity of fertilizer to be applied. \n- **Crop Requirements:** Different crops have different nutrient needs. Ensure that the basal fertilizer meets the specific requirements of the crop being grown. \n- **Soil Type and Texture:** Sandy soils may require more frequent fertilization, while clay soils may retain nutrients for longer periods. \n- **Irrigation and Rainfall:** Fertilizers should be applied when irrigation or rainfall is expected, as this helps dissolve and distribute the nutrients effectively. \n- **Organic vs. Inorganic Fertilizers:** Decide whether to use organic fertilizers like compost or inorganic chemical fertilizers based on soil health and crop needs."
+                        },
+                        {
+                            "title": "Precautions When Applying Basal Fertilizer",
+                            "descr": "While applying basal fertilizer, it is essential to take certain precautions: \n\n- **Avoid Over-application:** Applying too much fertilizer can cause nutrient imbalances in the soil and lead to plant damage. Always follow recommended dosages based on soil test results. \n- **Proper Mixing:** When using dry fertilizers, ensure they are well-mixed into the soil to prevent concentration in specific areas, which can harm the plants. \n- **Avoid Direct Contact with Roots:** Fertilizers should not come into direct contact with plant roots, as this can cause root burn. Proper placement is key to preventing damage. \n- **Consider Environmental Impact:** Choose fertilizers with minimal environmental impact, and avoid applying them before heavy rain to reduce the risk of nutrient runoff."
+                        }
+                    ]
+                },
+                {   
+                    "title": "Hardening the seedings",
+                    "nested_title": "in a nutshell",
+                    "image": "assets/crop/images/T5.jpeg",
+                    "descr": [
+                        {
+                            "title": "Hardening the Seedlings",
+                            "descr": "Hardening is the process of acclimatizing seedlings to outdoor conditions before transplanting them into the field. This practice helps seedlings adjust to varying temperatures, humidity levels, and light intensity that they will encounter in the open field. It is essential to gradually expose seedlings to these conditions to reduce the stress they experience during transplanting and improve their survival rate. Hardening helps the seedlings develop a stronger root system, thicker stems, and better overall vigor, enabling them to better withstand environmental stress after transplanting."
+                        },
+                        {
+                            "title": "Why Hardening is Important",
+                            "descr": "Hardening is important because it prepares seedlings for the harsher conditions of the outdoor environment. Without proper hardening, seedlings may suffer from shock, wilting, or even death after being transplanted into the field. The process helps: \n\n- **Reduce Transplant Shock:** Hardening reduces the shock seedlings experience when moved from a controlled nursery environment to the field. \n- **Strengthen the Seedlings:** Exposure to outdoor conditions encourages the growth of stronger, more robust seedlings with thicker stems and a more developed root system. \n- **Enhance Disease Resistance:** Seedlings that have been properly hardened are generally more resilient to pests and diseases. \n- **Improve Survival Rate:** Proper hardening improves the chances of seedling survival when transplanted into the field."
+                        },
+                        {
+                            "title": "Steps to Harden the Seedlings",
+                            "descr": "The process of hardening seedlings involves a gradual transition from the controlled environment of the nursery to the outdoor field conditions. Here are the steps involved in hardening: \n\n1. **Start Gradually:** Begin hardening about 7–14 days before transplanting. Start by placing seedlings outdoors for a few hours each day, gradually increasing the exposure time each day. \n2. **Provide Shade:** Initially, place seedlings in a shaded area to protect them from direct sunlight. Gradually increase their exposure to sunlight as they become stronger. \n3. **Control Watering:** Water the seedlings less frequently than usual during the hardening process to encourage the development of a stronger root system. However, ensure they are still properly watered to avoid wilting. \n4. **Acclimatize to Wind:** Gradually expose seedlings to wind conditions. This helps strengthen the stems and encourages the seedlings to develop more robust structures. \n5. **Monitor Temperature:** Ensure that seedlings are exposed to temperature fluctuations, as sudden temperature changes help them acclimatize to varying field conditions. \n6. **Avoid Fertilizing:** Avoid fertilizing seedlings during the hardening process as it can encourage soft growth that is more susceptible to damage."
+                        },
+                        {
+                            "title": "Duration of Hardening",
+                            "descr": "The duration of the hardening process varies depending on the type of seedlings and environmental conditions, but generally, it lasts between 7 and 14 days. The gradual exposure should start with 2–3 hours per day and increase to 6–8 hours by the end of the hardening period. Seedlings should be fully hardened before transplanting to ensure they can adapt to field conditions without excessive stress."
+                        },
+                        {
+                            "title": "Best Time to Harden Seedlings",
+                            "descr": "The best time to begin hardening seedlings is when they are strong enough to survive the transition to outdoor conditions, which is usually when they have developed a few sets of true leaves. The timing will vary based on the crop and climate, but generally, hardening should begin 1–2 weeks before the expected transplanting date. The process should be done during favorable weather conditions, avoiding extreme heat, frost, or heavy rainfall."
+                        },
+                        {
+                            "title": "Factors to Consider During Hardening",
+                            "descr": "Several factors should be considered when hardening seedlings to ensure the process is effective: \n\n- **Age of Seedlings:** Young seedlings with fewer leaves may require more time to harden. \n- **Weather Conditions:** The weather plays a key role in the hardening process. Mild weather with no extreme temperatures is ideal. Avoid hardening during periods of intense heat or frost. \n- **Type of Crop:** Some crops are more tolerant to stress and may require less time to harden, while others are more delicate and may require a longer hardening period. \n- **Light Intensity:** Seedlings should be gradually introduced to sunlight. Direct exposure to full sunlight too quickly can cause sunburn or stress."
+                        },
+                        {
+                            "title": "Common Mistakes to Avoid While Hardening",
+                            "descr": "To ensure the successful hardening of seedlings, it’s important to avoid certain mistakes that could cause damage: \n\n- **Exposing Seedlings to Sudden Temperature Fluctuations:** Rapid changes in temperature can shock the seedlings and reduce their chances of survival. \n- **Overexposing to Sunlight:** Introducing seedlings to full sunlight too quickly can cause them to burn. It’s important to gradually increase exposure. \n- **Insufficient Watering:** While you should reduce watering during hardening, completely withholding water can cause wilting and damage the seedlings. Ensure they are watered appropriately. \n- **Skipping Hardening for Delicate Crops:** Some crops, such as tomatoes and peppers, are particularly sensitive to environmental changes and should never be planted without hardening. \n- **Hardening in Poor Weather:** Don’t attempt hardening when there is strong wind, heavy rain, or frost, as these conditions can damage the seedlings."
+                        },
+                        {
+                            "title": "Benefits of Hardening",
+                            "descr": "Hardening seedlings offers several significant benefits: \n\n- **Improved Transplant Success:** Hardening ensures that seedlings are better adapted to outdoor conditions, leading to higher transplant success rates. \n- **Better Growth:** Seedlings that have been hardened typically grow faster and develop into healthier plants after being transplanted. \n- **Enhanced Disease Resistance:** Hardened seedlings are less susceptible to disease and pests because they are stronger and more resilient. \n- **Increased Yield:** Plants that are properly hardened tend to produce better yields due to stronger roots, improved disease resistance, and overall better health."
+                        }
+                    ]
+
+                }
+
+            ]
+        }
+    ]
+}
+
+
+    
+  
