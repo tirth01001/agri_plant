@@ -25,7 +25,7 @@ class _SearchFilterState extends State<SearchFilter> {
     "Pesticides & Insecticides",
     "Farm Machinery & Tools",
     "Irrigation & Water Management",
-    "Livestock & Dairy Farming",
+    "Grain",
     "Organic Farming Products"
   ];
 
